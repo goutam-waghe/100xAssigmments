@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const ObjectId = mongoose.Schema.ObjectId;
+
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -21,7 +22,10 @@ const todoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  done: Boolean,
+  done: {
+    type: Boolean,
+    default: false,
+  },
 });
 const UserModel = mongoose.model("users", userSchema);
 const TodoModel = mongoose.model("todos", todoSchema);
